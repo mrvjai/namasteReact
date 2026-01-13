@@ -1,0 +1,29 @@
+{
+  "name": "namste-react",
+  "version": "1.0.0",
+  "description": "learning react",
+  "homepage": "https://github.com/mrvjai/namasteReact#readme",
+  "bugs": {
+    "url": "https://github.com/mrvjai/namasteReact/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrvjai/namasteReact.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest",
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html"
+  },
+  "dependencies": {
+    "parcel": "^2.16.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "browserlists":[
+    "last 2 chrome versions"
+  ]
+}
