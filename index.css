@@ -1,3 +1,46 @@
-#one {
-color: red;
+.app-header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.nav-items > ul {
+    display: flex;
+    gap: 16px;        /* spacing between Home / About / Cart */
+    list-style: none; /* remove bullets */
+    margin: 0;        /* remove default top/bottom margins */
+    padding: 0;       /* remove default left padding that causes indent */
+
+}
+
+.nav-items > ul > li{
+    margin:15px;
+    list-style: none;
+}
+.res-search{
+    padding: 5px 0px;
+}
+.res-cards{
+    border:1px solid black;
+    width:230px;
+    background-color: lightgrey;
+     cursor: pointer; 
+}
+.res-cards:hover{
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+      0 10px 20px rgba(0,0,0,0.15),      /* soft drop shadow */
+      0 0 14px rgba(0,123,255,0.30);     /* colored glow (adjust color/opacity) */
+}
+.app-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+}
+.card-img{
+    width:100%;
+    height:120px;
+}
+.card-title{
+    margin:10px;
 }
