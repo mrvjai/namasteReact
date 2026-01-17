@@ -1,7 +1,10 @@
 .app-header{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:210px;
     border: 1px solid black;
+    height:148px;
+    background-color: lightcyan;
 }
 
 .nav-items > ul {
@@ -18,8 +21,53 @@
     list-style: none;
 }
 .res-search{
-    padding: 5px 0px;
+    padding: 15px 0px;
 }
+
+.res-btn{
+    display: inline-block;
+    padding: 8px 14px;             /* comfortable click area */
+    background: linear-gradient(180deg,#0ea5e9,#0284c7); /* subtle blue gradient */
+    color: #fff;
+    border: none;
+    border-radius: 8px;           /* rounded corners */
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(2,132,199,0.12);
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    text-decoration: none;        /* if used on anchors */
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.res-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(2,132,199,0.14);
+}
+
+.res-btn:active{
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(2,132,199,0.12);
+}
+
+.res-btn:focus{
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(2,132,199,0.12);
+}
+
+/* disabled state */
+.res-btn[disabled],
+.res-btn.disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* useful variant if button contains an icon + text */
+.res-btn--icon{ display:inline-flex; align-items:center; gap:8px; }
 .res-cards{
     border:1px solid black;
     width:230px;
@@ -37,6 +85,8 @@
     flex-wrap: wrap;
     gap:20px;
 }
+
+
 .card-img{
     width:100%;
     height:120px;
