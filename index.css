@@ -7,18 +7,28 @@
     background-color: lightcyan;
 }
 
-.nav-items > ul {
+.shamin-container{
     display: flex;
-    gap: 16px;        /* spacing between Home / About / Cart */
-    list-style: none; /* remove bullets */
-    margin: 0;        /* remove default top/bottom margins */
-    padding: 0;       /* remove default left padding that causes indent */
+    flex-wrap:wrap;
+    margin-top:25px;
+    gap:28px;
+}
+.shamin-card{
+    width: 210px;
+    height:240px;
+    background-color: lightcyan;
+}
+
+.nav-items > ul {
+    display: flex; 
+    flex-wrap: wrap;       /* spacing between Home / About / Cart */
 
 }
 
 .nav-items > ul > li{
-    margin:15px;
+   
     list-style: none;
+    margin-left: 75px;
 }
 .res-search{
     padding: 15px 0px;
@@ -93,4 +103,28 @@
 }
 .card-title{
     margin:10px;
+}
+.sessionDetails{
+
+    display: inline-block;
+    padding: 8px 14px;             /* comfortable click area */
+    background: linear-gradient(180deg,#0ea5e9,#0284c7); /* subtle blue gradient */
+    color: #fff;
+    border: none;
+    border-radius: 8px;           /* rounded corners */
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    margin-left: 250px;
+    margin-top: 60px;
+    box-shadow: 0 4px 10px rgba(2,132,199,0.12);
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    text-decoration: none;        /* if used on anchors */
+}
+.search-res{
+    padding:10px 25px;
+}
+.res-search{
+    display : flex;
 }

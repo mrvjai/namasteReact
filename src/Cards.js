@@ -1,12 +1,12 @@
 const Cards=({res})=>{
-    const {name,resId,image,rating,cuisine}=res.info;
-    console.log(name)
+    const {name,imageUrl,proOfferText,subtitleData,rating_new}=res;
     return(
         <div className='res-cards'>
-            <img className ="card-img" src={image.url} />
+            <img className ="card-img" alt="loading..." src={imageUrl}  />
             <h5 className='card-title'> {name} </h5>
-            <h5 style ={{margin:10,marginRight:-10}}>{cuisine.map(x =>x.name).join(', ')}</h5>
-            <h4 style ={{margin:20,paddingLeft:42}}>{rating.aggregate_rating} star</h4>
+            <h5 style ={{margin:10,marginRight:-10}}>{subtitleData.locality.text}</h5>
+            <h4 style ={{margin:20,paddingLeft:42}}>{proOfferText} </h4>
+            <h4 style ={{margin:20,paddingLeft:42}}>{rating_new?.ratings?.DINING?.rating} </h4>
         </div>
     )
 }
