@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const HederApp=()=>{
     const [sessButton,setsessButton] =useState(false);
@@ -13,9 +14,9 @@ export const HederApp=()=>{
             <h1 style={{color:"red", marginTop:50}}>NALLAGATLA'S</h1>
             <div className='nav-items'>
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Cart</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                 </ul>
                 <button className="sessionDetails" onClick={toggle}>{ (sessButton) ? "LOGIN" : "LOGOUT"}</button>
             </div>

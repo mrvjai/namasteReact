@@ -1,5 +1,6 @@
 import Cards from "./Cards";
 import { data } from "../utils/mockData";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ShaminDisplay } from "./ShaminDisplay";
 
@@ -26,7 +27,6 @@ const BodyApp = () => {
     setFil(filter);
   };
   const desiredSearch = ()=>{
-    console.log(val)
     const finalResponse = resObj.filter(x=>x.name.toLowerCase().includes(val.toLocaleLowerCase()))
      setFil(finalResponse) 
 
@@ -34,7 +34,6 @@ const BodyApp = () => {
   if(resObj.length === 0){
         return <ShaminDisplay />
   }
-  console.log("helloo")
 
   return (
     <div className="app-body">
@@ -49,7 +48,8 @@ const BodyApp = () => {
         </button>
       </div>
       <div className="app-cards">
-        {fil.map(x => <Cards key={x.id} res={x} />)}
+
+        {fil.map(x => <Link key={x.id} to={"/"+new URL(x.url).pathname.split('/').filter(Boolean).pop()+"/order"}><Cards  res={x} /></Link>)}
       </div>
     </div>
   );
