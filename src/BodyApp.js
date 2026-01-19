@@ -3,9 +3,11 @@ import { data } from "../utils/mockData";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ShaminDisplay } from "./ShaminDisplay";
+import { useStatusCheck } from "../utils/useStatusCheck";
 
 const BodyApp = () => {
   const [resObj, setResObj] = useState([]);
+  const status = useStatusCheck()
   const [fil,setFil] = useState([]);
   const [val,setVal] = useState("");
 
@@ -34,7 +36,9 @@ const BodyApp = () => {
   if(resObj.length === 0){
         return <ShaminDisplay />
   }
-
+  if(status === false) return <h1>Looks like you are Offline!!</h1>
+  console.log(status,"---->")
+ 
   return (
     <div className="app-body">
       <div className="res-search">

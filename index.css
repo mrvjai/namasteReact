@@ -21,14 +21,14 @@
 
 .nav-items > ul {
     display: flex; 
-    flex-wrap: wrap;       /* spacing between Home / About / Cart */
+    flex-wrap: wrap;  
+    gap:15px;     
 
 }
 
 .nav-items > ul > li{
    
     list-style: none;
-    margin-left: 75px;
 }
 .res-search{
     padding: 15px 0px;

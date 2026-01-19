@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useStatusCheck } from "../utils/useStatusCheck";
 
 export const HederApp=()=>{
     const [sessButton,setsessButton] =useState(false);
+    const status = useStatusCheck();
     const toggle=()=>{
         setsessButton(!sessButton)
     }
@@ -14,6 +16,7 @@ export const HederApp=()=>{
             <h1 style={{color:"red", marginTop:50}}>NALLAGATLA'S</h1>
             <div className='nav-items'>
                 <ul>
+                    <li>is Online:{status?"YES":"NO"}</li>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
