@@ -1,5 +1,5 @@
 // ...existing code...
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { HederApp } from "./src/HeaderApp";
@@ -10,7 +10,7 @@ import Error from "./src/Error";
 import { Contact } from "./src/Contact";
 import { ResMenue } from "./src/ResMenue";
 // ...existing code...
-
+const Grocery = lazy(() => import("./src/Grocery"));
 const AppLayout = () => {
   return (
     <div className="app-root">
@@ -25,7 +25,7 @@ const data = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     children: [
-         {
+      {
         path: "/",
         element: <BodyApp />,
       },
@@ -40,6 +40,14 @@ const data = createBrowserRouter([
       {
         path: "/:name/order",
         element: <ResMenue />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

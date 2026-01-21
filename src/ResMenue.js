@@ -1,4 +1,3 @@
-import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import ShaminDisplay from "./ShaminDisplay";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
@@ -13,8 +12,8 @@ export const ResMenue=()=>{
       }
     return(
         <div>
-            <h1 className="titleMenu">{name.toUpperCase()}</h1>
-            <h1>menu</h1>
+            <h1 className="titleMenu"><b>{name.toUpperCase()}</b></h1>
+            <h1><b>menu</b></h1>
             <ul>
                 {menu?.map(x=><li key ={x?.item?.id}>{x?.item?.name}</li>)}
             </ul>
