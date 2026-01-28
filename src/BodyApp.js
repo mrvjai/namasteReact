@@ -1,4 +1,4 @@
-import Cards from "./Cards";
+import Cards,{offerCards} from "./Cards";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {useEffect,useState} from 'react';
@@ -12,6 +12,7 @@ const BodyApp = () => {
   // const { resObj, fil } = useInitialFetch();
   const [resObj, setResObj] = useState([]);
   const [fil,setFil] = useState([]);
+  const MainOffers = offerCards(Cards)
   
     useEffect(() => {
       const realData =  async  () => {
@@ -67,7 +68,9 @@ const BodyApp = () => {
               "/order"
             }
           >
-            <Cards res={x} />
+            {
+              x.proOfferText ? (<MainOffers res={x} />) :( <Cards res={x} />)
+            }
           </Link>
         ))}
       </div>
