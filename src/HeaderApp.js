@@ -2,11 +2,14 @@ import { useState , useContext} from "react";
 import { Link } from "react-router-dom";
 import { useStatusCheck } from "../utils/useStatusCheck";
 import context from "../utils/useContext";
+import { useSelector } from "react-redux";
 
 export const HederApp=()=>{
     const [sessButton,setsessButton] =useState(false);
     const def = useContext(context)
     const status = useStatusCheck();
+    const cart = useSelector((store)=>store.cart.items)
+    console.log(cart)
     const toggle=()=>{
         setsessButton(!sessButton)
     }
@@ -22,8 +25,9 @@ export const HederApp=()=>{
                     <li className="p-3"><Link to="/">Home</Link></li>
                     <li className="p-3"><Link to="/about">About</Link></li>
                     <li className="p-3"><Link to="/contact">Contact</Link></li>
+                    <li className="p-3 font-bold"><Link to="/cart">Cart-{cart.length}</Link></li>
                 </ul>
-                <button className="bg-amber-200 mr-2 h-[25]" onClick={toggle}>{ (sessButton) ? "LOGIN" : "LOGOUT"}</button>
+                <button className=" bg-blue-500 px-2 ml-2 border border-blue-300 mt-2 mb-2 cursor-pointer" onClick={toggle}>{ (sessButton) ? "LOGIN" : "LOGOUT"}</button>
                 <li className="p-3 list-none font-bold"><Link to="/contact">{def.userName}</Link></li>
             </div>
         </div>
