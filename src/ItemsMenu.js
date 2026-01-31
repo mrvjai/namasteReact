@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
-import {useState} from 'react'
+
 
 export const ItemsMenu = ({ data }) => {
   const dispatch = useDispatch();
-  const [rem,setRem] = useState(0)
+  const cart = useSelector((store) => store.cart.items);
+  console.log(cart,"dataitems")
   const handleAddItem = (x) => {
     dispatch(addItem(x));
-    setRem(1);
   };
   const handleRemoveItem = (x) => {
     dispatch(removeItem(x));
@@ -29,7 +29,7 @@ export const ItemsMenu = ({ data }) => {
                 <button className="order border-black bg-sky-600 p-1">
                   ADD
                 </button>
-                {rem > 0 ? (
+                {cart.length > 0 ? (
                   <button
                     className="order border-black bg-lime-200 p-1"
                     onClick={() => handleRemoveItem(x)}
