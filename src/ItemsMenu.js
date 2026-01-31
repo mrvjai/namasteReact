@@ -21,17 +21,17 @@ export const ItemsMenu = ({ data }) => {
               <span>{x.item.name}</span>
               <div>
                 <button
-                  className="order border-black bg-lime-200 p-1"
+                  className="order border-black bg-lime-200 p-1 rounded active:bg-green-500"
                   onClick={() => handleAddItem(x)}
                 >
                   +
                 </button>
-                <button className="order border-black bg-sky-600 p-1">
+                <button className="order border-black bg-sky-600 p-1 rounded">
                   ADD
                 </button>
                 {cart.length > 0 ? (
                   <button
-                    className="order border-black bg-lime-200 p-1"
+                    className="order border-black bg-lime-200 p-1 rounded active:bg-red-600"
                     onClick={() => handleRemoveItem(x)}
                   >
                     -

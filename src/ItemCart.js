@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, clearItems } from "../utils/cartSlice";
+import { addItem, clearItems, removeItem } from "../utils/cartSlice";
 
-const Cart = () => {
+const ItemCart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems,"dataitems")
   const dispatch = useDispatch();
@@ -11,6 +11,9 @@ const Cart = () => {
     const handleClearItem = ()=>{
       dispatch(clearItems())
     }
+      const handleRemoveItem = (x) => {
+        dispatch(removeItem(x));
+      };
   return (
     <div className="text-center p-4 m-4">
       <h1 className="font-bold text-2xl">Cart 🛒</h1>
@@ -29,7 +32,25 @@ const Cart = () => {
           <div key={y} className="p-2 m-2 border-gray-200 border-b-2 ">
             <div className="py-4 flex justify-between">
               <span>{x.item.name}</span>
-              <button className="order border-black bg-sky-600 p-1" onClick={()=>handleAddItem(x)}>- ADD +</button>
+               <div>
+                <button
+                  className="order border-black bg-lime-200 p-1 active:bg-green-500"
+                  onClick={() => handleAddItem(x)}
+                >
+                  +
+                </button>
+                <button className="order border-black bg-sky-600 p-1">
+                  ADD
+                </button>
+                {cartItems.length > 0 ? (
+                  <button
+                    className="order border-black bg-lime-200 p-1 active:bg-red-600"
+                    onClick={() => handleRemoveItem(x)}
+                  >
+                    -
+                  </button>
+                ) : null}
+              </div>
             </div>
             <p className="text-xs">{x.item.desc||"preparing with love"}</p>
           </div>
@@ -40,4 +61,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default ItemCart;
