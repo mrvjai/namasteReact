@@ -4,7 +4,7 @@ export const ItemsMenu = ({ data }) => {
     <div>
       {data.map((category, categoryIndex) =>
         category.category.items.map((item, itemIndex) => (
-          <div key={itemIndex} className="p-2 m-2 border-gray-200 border-b-2 text-left">
+          <div key={`${categoryIndex}-${itemIndex}`} className="p-2 m-2 border-gray-200 border-b-2 text-left">
             <div className="py-4 flex justify-between">
               <span>{item.item.name}</span>
               <button className="bg-amber-100">- ADD +</button>
