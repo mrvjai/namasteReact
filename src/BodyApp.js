@@ -1,10 +1,11 @@
 import Cards,{offerCards} from "./Cards";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import {useEffect,useState} from 'react';
 import { ShaminDisplay } from "./ShaminDisplay";
 import { useStatusCheck } from "../utils/useStatusCheck";
 import { useInitialFetch } from "../utils/useInitialFetch";
+import context from "../utils/useContext";
 
 const BodyApp = () => {
   const status = useStatusCheck();
@@ -12,6 +13,7 @@ const BodyApp = () => {
   // const { resObj, fil } = useInitialFetch();
   const [resObj, setResObj] = useState([]);
   const [fil,setFil] = useState([]);
+  const {userName,setName} = useContext(context)
   const MainOffers = offerCards(Cards)
   
     useEffect(() => {
@@ -57,6 +59,8 @@ const BodyApp = () => {
         <button className=" bg-blue-500 px-2 ml-2 border border-blue-300 mt-2 mb-2 cursor-pointer" onClick={filteredData}>
           Top Rated Hotels
         </button>
+
+        <input className=" bg-blue-500 px-2 ml-2 border border-blue-300 mt-2 mb-2 cursor-pointer" type="text" value={userName} onChange={(e)=>setName(e.target.value)}/>
       </div>
       <div className="flex flex-wrap ml-4 gap-12">
         {fil.map((x) => (

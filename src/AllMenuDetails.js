@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ItemsMenu } from "./ItemsMenu";
-export const AllMenuDetails = ({ res,detail,fixShow }) => {
+export const AllMenuDetails = ({ res,detail,fixShow,setStatus }) => {
   const show=()=>{
     console.log("clicked");
     fixShow()
+    setStatus()
 
   }
   return (
@@ -13,7 +14,7 @@ export const AllMenuDetails = ({ res,detail,fixShow }) => {
           <span className="font-bold text-lg">
             {res.name}
           </span>
-          <span>🔽</span>
+          <span >🔽</span>
         </div>
         {
                  (detail)? <ItemsMenu data={res.categories}/> : null

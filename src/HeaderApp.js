@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState , useContext} from "react";
 import { Link } from "react-router-dom";
 import { useStatusCheck } from "../utils/useStatusCheck";
+import context from "../utils/useContext";
 
 export const HederApp=()=>{
     const [sessButton,setsessButton] =useState(false);
+    const def = useContext(context)
     const status = useStatusCheck();
     const toggle=()=>{
         setsessButton(!sessButton)
@@ -22,6 +24,7 @@ export const HederApp=()=>{
                     <li className="p-3"><Link to="/contact">Contact</Link></li>
                 </ul>
                 <button className="bg-amber-200 mr-2 h-[25]" onClick={toggle}>{ (sessButton) ? "LOGIN" : "LOGOUT"}</button>
+                <li className="p-3 list-none font-bold"><Link to="/contact">{def.userName}</Link></li>
             </div>
         </div>
     )

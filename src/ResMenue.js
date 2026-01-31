@@ -7,6 +7,7 @@ import { useState } from "react";
 export const ResMenue=()=>{
     const pata = useParams();
     const [show,setShow] = useState(null)
+    const [status,setStatus] = useState(true)
     const name =pata.name;
     const {fullMenu,menu}=useRestaurantMenu(name)
 // PASS a function to useEffect, not realData()
@@ -20,7 +21,7 @@ export const ResMenue=()=>{
            
             {
                  //controlled component
-                fullMenu?.map((x,y)=> (<AllMenuDetails key ={y} res={x?.menu} detail={y===show&&true} fixShow={()=>setShow(y)}/>))
+                fullMenu?.map((x,y)=> (<AllMenuDetails key ={y} res={x?.menu} detail={y===show&&status} fixShow={()=>setShow(y)} setStatus={()=>setStatus(!status)}/>))
             }
         </div>
     )

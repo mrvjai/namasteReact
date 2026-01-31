@@ -1,5 +1,5 @@
 // ...existing code...
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState, useEffect,useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { HederApp } from "./src/HeaderApp";
@@ -9,14 +9,24 @@ import About from "./src/About";
 import Error from "./src/Error";
 import { Contact } from "./src/Contact";
 import { ResMenue } from "./src/ResMenue";
+import context from "./utils/useContext";
 // ...existing code...
 const Grocery = lazy(() => import("./src/Grocery"));
 const AppLayout = () => {
+  const [name,setName]=useState()
+  useEffect(()=>{
+    const naam = {
+      name:"vijay Kumar"
+    }
+    setName(naam.name)
+  },[])
   return (
+    <context.Provider value={{userName:name,setName}}>
     <div className="app-root">
       <HederApp />
       <Outlet />
     </div>
+    </context.Provider>
   );
 };
 
