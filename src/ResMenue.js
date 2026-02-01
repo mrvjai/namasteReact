@@ -17,7 +17,7 @@ export const ResMenue=()=>{
     return(
         <div className="text-center">
             <h1 className="my-6 text-2xl"><b>{name.toUpperCase()}</b></h1>
-            <h1><b>menu</b></h1>
+            <h1 className="italic text-2xl"><b>menu</b></h1>
            
             {
                  //controlled component
